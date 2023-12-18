@@ -1,6 +1,13 @@
-Started my project of T1A3 Terminal application
-My app idea was approved and this was the brief I submitted:
-    Brief - I would like to make a truck register. It will keep a detail for a fleet of trucks, including key information, such as rego, model, and plant number.
+# T1A3 - Truck Registery Application 
+
+Link to GitHub Repository: https://github.com/gysagsohn/T1A3---Terminal-Application
+
+Link to the presentation: TBC
+
+
+# Brief submission:
+I submitted the below breif for terminal application app assginement:
+    I would like to make a truck register. It will keep a detail for a fleet of trucks, including key information, such as rego, model, and plant number.
 
     Features will include:
         to add/remove trucks
@@ -9,19 +16,21 @@ My app idea was approved and this was the brief I submitted:
         display the register of trucks
         a feature that defines a truck based on its GVM to be LV, MV, HV
 
-Remote Repository
+# Remote Repository
     For my remote repository I have choosen git hub. The first commite was made on 12/12
 
 
-Project managment tool
+# Project managment tool
     Trello - planning to use trello to manage the process and will be added to this project submission
     Screen shot of the board on day 1 can be found at T1A3/docs/trello_board_day1
+    Updated board image: 
+    Finisehd project: 
 
-CODE STYLE CONVENTIONS:
+# CODE STYLE CONVENTIONS:
     Pep 8 has been choosen as the style convention.
 
 
-Main page - function 1 part 1 and user input 1w
+# Main page - function 1 part 1 and user input 1w
 Created main page to give user options on what they can do. Very simple number menu options: 
 
     ```python
@@ -36,7 +45,7 @@ Created main page to give user options on what they can do. Very simple number m
     ```
 Considering creating a password page if I get time, but at this stage I believe this is sufficient. Will use colour function at the end. 
 
-Users Choice - fuction 1 part 2
+# Users Choice - fuction 1 part 2
 
 Used a while loop function to define user input
 
@@ -59,7 +68,7 @@ Used a while loop function to define user input
 
 Each of those variable will be a function that is defined in a different page.
 
-CSV file 
+# CSV file for truck registry 
 
 Need a CSV file to hold the truck register informaiton. Created "registery.csv" function to record the list 
 
