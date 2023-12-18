@@ -2,6 +2,19 @@
 
 # from colored import fg, attr, bg
 
+file_name= "registery.csv"
+
+try:
+    truck_registery_file= open(registery.csv, "r")
+    truck_registery_file.close()
+    print("In try block")
+except FileNotFoundError:
+    truck_registery_file = open(file_name, "w")
+    truck_registery_file.write("title,completed\n")
+    truck_registery_file.close()
+    print("In except block")
+
+
 print(f"Truck Register!")
 
 #main page to show options
