@@ -29,6 +29,8 @@ I submitted the below breif for terminal application app assginement:
 # CODE STYLE CONVENTIONS:
     Pep 8 has been choosen as the style convention.
 
+# Flow chart of my application:
+Flow chart for my application has been made and it can seen under docs. 
 
 # Main page - function 1 part 1 and user input 1w
 Created main page to give user options on what they can do. Very simple number menu options: 
@@ -86,3 +88,4 @@ Need a CSV file to hold the truck register informaiton. Created "registery.csv" 
         print("In except block")
     ```
 Further used error function to check. Based on what I learned during class. As of 18/12 this has not been tested, and might be updated as it develops. 
+
