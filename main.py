@@ -5,7 +5,7 @@
 file_name= "registery.csv"
 
 try:
-    truck_registery_file= open(registery.csv, "r")
+    truck_registery_file= open(file_name, "r")
     truck_registery_file.close()
     print("In try block")
 except FileNotFoundError:
@@ -30,7 +30,7 @@ def truck_registery():
 users_choice = ""
 
 while users_choice != "5":
-    users_choice = create_registerty()
+    users_choice = truck_registery()
     if (users_choice == "1"):
         view_truck(file_name)
     elif (users_choice == "2"):
