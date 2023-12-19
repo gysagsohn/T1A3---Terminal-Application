@@ -1,6 +1,7 @@
 #T1A3 terminal application - crearting repository
 
 # from colored import fg, attr, bg
+from truck_registry_functions import view_truck
 
 file_name= "registery.csv"
 
@@ -35,9 +36,12 @@ while users_choice != "5":
         view_truck(file_name)
     elif (users_choice == "2"):
         add_truck(file_name)
+        pass
     elif (users_choice == "3"):
         remove_truck(file_name)
+        pass
     elif (users_choice == "4"):
+        pass
         weight_classification_truck(file_name)
     elif (users_choice == "5"):
         continue
