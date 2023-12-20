@@ -173,7 +173,7 @@ Just needed to add a simple function to provide the user with the option to view
         with open(file_name, "w", newline='') as f:
             writer = csv.writer(f)
             writer.writerows(truck_rego)
-   ```
+    ```
 
 # CSV file - Truck Registry
 
