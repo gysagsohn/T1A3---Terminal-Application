@@ -26,10 +26,3 @@ def get_valid_float_input(prompt):
         except ValueError:
             print("Invalid input. Please enter numbers only.")
 
-def view_truck_registry(file_name):
-    print("\nTruck Registry:")
-    with open(file_name, "r") as f:
-        reader = csv.reader(f)
-        for truck in reader:
-            print(truck)
- 
