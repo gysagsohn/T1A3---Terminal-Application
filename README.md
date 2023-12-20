@@ -139,10 +139,41 @@ Just needed to add a simple function to provide the user with the option to view
         with open(file_name, "r") as f:
             reader = csv.reader(f)
             for truck in reader:
-                print(truck)
     ```
+ I want this to be a separate function where a user can see the weight classification if they ask the program, but I am not sure how I can do that. I will see if I can come up with a solution to do that. If not I will need to add this to add truck function so that it addes it directly to the CSV file as the third input and can be viewed when the user selects view registry function. 
  
+ I will come back to this as the git remove should be easy enough
 
+ # Function - Remove Truck from registry
+
+ I created a function for the user to be able to remove truck from registry. I wanted the current data to display so that it was easy for the user to see what was on their list. Also, to manage handing error I wanted to add a loop where if incorrect rego was entered then the application will inform the user. 
+
+    ```python
+    def remove_truck(file_name):
+        print("Remove truck from registry")
+        # Display the current truck registry so that user knows what truck is in their list
+        print("Current Truck Registry:")
+        with open(file_name, "r") as f:
+            reader = csv.reader(f)
+            for row in reader:
+                print(row)
+        truck_rego_to_remove = input("Enter truck rego you want to remove: ").upper()
+        truck_rego = []
+        with open(file_name, "r") as f:
+            reader = csv.reader(f)
+            found = False  # flag to track if the truck to remove is found
+            for row in reader:
+                if truck_rego_to_remove == row[0]:
+                    found = True
+                else:
+                    truck_rego.append(row)
+            # error handling if a truck rego that is not on the list has been entered
+            if not found:
+                print(f"Truck with registration number {truck_rego_to_remove} not found in the registry.")
+        with open(file_name, "w", newline='') as f:
+            writer = csv.writer(f)
+            writer.writerows(truck_rego)
+   ```
 # CSV file for truck registry 
 
 Need a CSV file to hold the truck register informaiton. Created "registery.csv" function to record the list 

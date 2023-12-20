@@ -1,19 +1,17 @@
 #T1A3 terminal application - crearting repository
 
 # from colored import fg, attr, bg
-from truck_registry_functions import add_truck, view_truck_registry, weight_classification_truck
+from truck_registry_functions import add_truck, view_truck_registry, remove_truck
 
 file_name= "registery.csv"
 
 try:
     truck_registery_file= open(file_name, "r")
     truck_registery_file.close()
-    print("In try block")
 except FileNotFoundError:
     truck_registery_file = open(file_name, "w")
-    truck_registery_file.write("title,completed\n")
+    truck_registery_file.write("rego,weight\n")
     truck_registery_file.close()
-    print("In except block")
 
 
 print(f"Truck Register!")
@@ -36,10 +34,10 @@ while users_choice != "5":
         add_truck(file_name)
     elif (users_choice == "2"):
         view_truck_registry(file_name)
-    # elif (users_choice == "3"):
-    #     remove_truck(file_name)
-    elif (users_choice == "4"):
-        weight_classification_truck(file_name)
+    elif (users_choice == "3"):
+        remove_truck(file_name)
+    # elif (users_choice == "4"):
+    #     weight_classification_truck(file_name)
     elif (users_choice == "5"):
         continue
     else:
