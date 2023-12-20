@@ -130,6 +130,18 @@ I thought about adding some error handling after the code was written and played
             except ValueError:
                 print("Invalid input. Please enter numbers only.")
     ```
+# Function - View Truck Registry
+Just needed to add a simple function to provide the user with the option to view the information they have added. Please see below for code:
+
+    ```python
+    def view_truck_registry(file_name):
+        print("\nTruck Registry:")
+        with open(file_name, "r") as f:
+            reader = csv.reader(f)
+            for truck in reader:
+                print(truck)
+    ```
+ 
 
 # CSV file for truck registry 
 
