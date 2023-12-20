@@ -32,4 +32,11 @@ def view_truck_registry(file_name):
         for truck in reader:
             print(truck)
  
-
+def weight_classification_truck(truck_weight):
+    if truck_weight >= 12:
+        return "HV (Heavy Vehicle)"
+    elif truck_weight < 8:
+        return "LV (Light Vehicle)"
+    else:
+        return "MV (Medium Vehicle)"
+truck_classification = classify_truck(truck_weight)
