@@ -175,7 +175,7 @@ Just needed to add a simple function to provide the user with the option to view
             writer.writerows(truck_rego)
    ```
 
-**# CSV file for truck registry 
+# CSV file - Truck Registry
 
 Need a CSV file to hold the truck register informaiton. I used the code that I lernt from class. I adjusted the code to suit the truck registry from a todo list that was worked on from class. 
 
