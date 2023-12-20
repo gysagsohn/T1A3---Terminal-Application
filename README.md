@@ -176,22 +176,20 @@ Just needed to add a simple function to provide the user with the option to view
    ```
 # CSV file for truck registry 
 
-Need a CSV file to hold the truck register informaiton. Created "registery.csv" function to record the list 
+Need a CSV file to hold the truck register informaiton. I used the code that I lernt from class. I adjusted the code to suit the truck registry from a todo list that was worked on from class. 
 
     ```python
     file_name= "registery.csv"
 
     try:
-        truck_registery_file= open(registery.csv, "r")
+        truck_registery_file= open(file_name, "r")
         truck_registery_file.close()
-        print("In try block")
     except FileNotFoundError:
         truck_registery_file = open(file_name, "w")
-        truck_registery_file.write("title,completed\n")
+        truck_registery_file.write("rego,weight\n")
         truck_registery_file.close()
-        print("In except block")
     ```
-Further used error function to check. Based on what I learned during class. As of 18/12 this has not been tested, and might be updated as it develops. 
+Further used error function if file could not be found based on what I learned during class. As of 18/12 this has not been tested, and might be updated as I develop the app. 
 
 # Reference List
     - van Rossum, G, Warsaw, B & Coghlan, N 2001, PEP 8 – Style Guide for Python Code | peps.python.org, viewed 15/12/23 <peps.python.org>
