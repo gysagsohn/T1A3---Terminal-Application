@@ -20,8 +20,8 @@ print(f"Truck Register!")
 
 #main page to show options
 def truck_registery():
-    print("1. Enter 1 to view your truck registerty")
-    print("2. Enter 2 add truck rego and weight to your list")
+    print("1. Enter 1 add truck rego and weight to your list")
+    print("2. Enter 2 to view your truck registerty")
     print("3. Enter 3 remove truck from your registry")
     print("4. Enter 4 to see weight classification of your truck")
     print("5. Enter 5 to exit")
@@ -34,15 +34,15 @@ while users_choice != "5":
     users_choice = truck_registery()
     if (users_choice == "1"):
         add_truck(file_name)
-    elif (users_choice == "2"):
-        view_truck(file_name)
-        pass
-    elif (users_choice == "3"):
-        remove_truck(file_name)
-        pass
-    elif (users_choice == "4"):
-        pass
-        weight_classification_truck(file_name)
+    # elif (users_choice == "2"):
+    #     view_truck(file_name)
+    #     pass
+    # elif (users_choice == "3"):
+    #     remove_truck(file_name)
+    #     pass
+    # elif (users_choice == "4"):
+    #     pass
+        # weight_classification_truck(file_name)
     elif (users_choice == "5"):
         continue
     else:

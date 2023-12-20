@@ -70,6 +70,41 @@ Used a while loop function to define user input
 
 Each of those variable will be a function that is defined in a different page.
 
+# Add truck function
+
+I attempted using the below code for it:
+
+    ```python
+        def add_truck(file_name):
+            print("Add truck to your registry")
+            
+            while True:
+                print("Type 'stop' to finish")
+                truck_rego = input("Enter the truck rego: ").upper
+                truck_make = input("Enter the truck make: ").upper
+                truck_weight = input("Enter the truck weight(in tonne only):")
+                if truck_rego.lower() == 'stop':
+                    break  # exit the loop if the user types 'stop'
+                
+                # Open file - list.csv
+                with open(file_name, "a") as f:
+                    writer = csv.writer(f)
+                    writer.writerow([truck_rego, truck_make, truck_weight])
+    ```
+But it addes the user input as 1 line into the CVS folder and believe it will cause issues when I need to creat a search function and weight classification. So I changed it to:
+
+    ```python
+    def add_truck(file_name):
+        print("Add truck details to register")
+        truck_rego = input("Please enter truck rego: ")
+        truck_weight = input("Pleas enter trucks weight in tonnes: ")
+        with open(file_name, "a") as f:
+            writer = csv.writer(f)
+            writer.writerow([truck_rego, truck_weight])
+    ```
+Simple it addes the truck and weight to the CSV file in 1 line.
+
+
 # CSV file for truck registry 
 
 Need a CSV file to hold the truck register informaiton. Created "registery.csv" function to record the list 
@@ -89,3 +124,9 @@ Need a CSV file to hold the truck register informaiton. Created "registery.csv" 
     ```
 Further used error function to check. Based on what I learned during class. As of 18/12 this has not been tested, and might be updated as it develops. 
 
+# Reference List
+    - van Rossum, G, Warsaw, B & Coghlan, N 2001, PEP 8 – Style Guide for Python Code | peps.python.org, viewed 15/12/23 <peps.python.org>
+    -‌ GeeksforGeeks 2019, GeeksforGeeks | A computer science portal for geeks, viewed 15/12/23 <GeeksforGeeks.>‌
+    W3Schools 2019, Python Tutorial, viewed 15/12/23 <W3schools.com>
+    -‌ LAB, V n.d., colour: converts and manipulates various color representation (HSL, RVB, web, X11, ...), PyPI viewed 16/12/23 <c​https://pypi.org/project/colour/>
+‌
