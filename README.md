@@ -215,6 +215,13 @@ Since I have made changes to the orinal plan, I have decided to change the optio
         with open(file_name, "w", newline='') as f:
             writer = csv.writer(f)
             writer.writerows(truck_rego)
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+   ```
+# CSV file for truck registry 
+=======
+>>>>>>> cd3212c (Add function classify truck weight)
     ```
 
 Showing the truck regsitry might not comply with DRY code principle, but I believe this would reduce user error, therefore this was inserted. 
@@ -245,6 +252,7 @@ Using if, elif and else to create the loop. This idea was defined in my flow dig
 
 Since I have made changes to the orinal plan, I have decided to change the option 4 on the main page to a different function, where a user can search for trucks based on weight classification, and it only shows those trucks when requested. Please see below for the search based on weight classification function. 
 
+<<<<<<< HEAD
 # Function - Search based on weight classification / ordered view
 I treid to make a function that would only show trucks of ceratin weight class. I could not work this out. If I have time, I will come back to this and make this function. However, I thought the second best option is once the user added the details of the truck and uses the function view truck registry, I would group them into classification and make them feature into view truck regisrty. So to make this happened I changed the view truck function to include the following code:
 
@@ -350,6 +358,13 @@ def update_truck_details(file_name):
 ```
 
 # CSV file - Truck Registry
+=======
+# Function - Searh based on weight classification
+
+
+# CSV file - Truck Registry
+>>>>>>> f1a70f7 (Add function classify truck weight)
+>>>>>>> cd3212c (Add function classify truck weight)
 
 Need a CSV file to hold the truck register informaiton. I used the code that I lernt from class. I adjusted the code to suit the truck registry from a todo list that was worked on from class. 
 

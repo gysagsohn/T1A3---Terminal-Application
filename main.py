@@ -43,8 +43,8 @@ while users_choice != "6":
         view_truck_registry(file_name)
     elif (users_choice == "3"):
         remove_truck(file_name)
-    elif (users_choice == "4"):
-        update_truck_details(file_name)
+    # elif (users_choice == "4"):
+    #     weight_classification_truck(file_name)
     elif (users_choice == "5"):
         search_truck_classification(file_name)
     elif (users_choice == "6"):
