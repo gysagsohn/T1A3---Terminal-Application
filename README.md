@@ -130,6 +130,25 @@ I thought about adding some error handling after the code was written and played
             except ValueError:
                 print("Invalid input. Please enter numbers only.")
     ```
+
+I have also added a function called is_truck_registered to provide additional error handling if the user tries to input details of a truck that is already in the register. I basically wanted to run the check based on rego. So I created a function:
+
+    ```python
+    def is_truck_registered(file_name, truck_rego):
+        #Check if a truck registration is already in the registry
+        with open(file_name, "r") as f:
+            reader = csv.reader(f)
+            for row in reader:
+                if truck_rego == row[0]:
+                    return True
+        return False
+
+
+    # Check if the truck is already registered
+    if is_truck_registered(file_name, truck_rego):
+        print(f"Error: Truck with registration {truck_rego} is already in the registry.")
+        return
+    ```
 # Function - View Truck Registry
 Just needed to add a simple function to provide the user with the option to view the information they have added. Please see below for code:
 
@@ -140,9 +159,32 @@ Just needed to add a simple function to provide the user with the option to view
             reader = csv.reader(f)
             for truck in reader:
     ```
- I want this to be a separate function where a user can see the weight classification if they ask the program, but I am not sure how I can do that. I will see if I can come up with a solution to do that. If not I will need to add this to add truck function so that it addes it directly to the CSV file as the third input and can be viewed when the user selects view registry function. 
  
- I will come back to this as the git remove should be easy enough
+# Function - Truck weight classification
+I original wanted this function to be where the user enters the rego of the truck that is already in the registry and it provides the weight clafficiation. The weight classification is if the truck weights 12T or more it is heavy vehicle (HV), if it weights 8t or less then it is a light vehicle and everything else is medium class (MV). However, as a way to demostrate that I am able to use the data input better, I have added the truck weight classification automatically so that it shows its class. The code I used to make it happen:
+
+    ```python
+    truck_classification = classify_truck_weight(truck_weight)
+
+
+    writer.writerow([truck_rego, truck_weight,  truck_classification])
+    ```
+I nested this in the add truck function so that it shows up on the list, and the claffication is defined below:
+
+    ```python
+    def classify_truck_weight(weight):
+        #Classify the weight of a truck into LV, MV, or HV
+        if weight < 8:
+            return "LV (Light Vehicle)"
+        elif weight >= 12:
+            return "HV (Heavy Vehicle)"
+        else:
+            return "MV (Medium Vehicle)"
+    ```
+
+Using if, elif and else to create the loop. This idea was defined in my flow digram "truck_classification_application_fuction"
+
+Since I have made changes to the orinal plan, I have decided to change the option 4 on the main page to a different function, where a user can search for trucks based on weight classification, and it only shows those trucks when requested. Please see below for the search based on weight classification function. 
 
  # Function - Remove Truck from registry
 
