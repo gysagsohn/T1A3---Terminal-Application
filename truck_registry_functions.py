@@ -55,7 +55,8 @@ def sort_truck_registry(file_name):
         truck_registry = list(reader)
 
     # Sort the truck registry based on classification (HV, MV, LV)
-    sorted_truck_registry = sorted(truck_registry, key=lambda truck: truck[2])
+    classification_order = {"HV (Heavy Vehicle)": 0, "MV (Medium Vehicle)": 1, "LV (Light Vehicle)": 2}
+    sorted_truck_registry = sorted(truck_registry, key=lambda truck: classification_order.get(truck[2], 3))
 
     return [header] + sorted_truck_registry  # Include the header row in the sorted registry
 
@@ -137,3 +138,4 @@ def update_truck_details(file_name):
             writer = csv.writer(f)
             writer.writerows(truck_registry)
         print(f"Truck details updated successfully.")
+

@@ -264,7 +264,8 @@ I treid to make a function that would only show trucks of ceratin weight class. 
             truck_registry = list(reader)
 
         # Sort the truck registry based on classification (HV, MV, LV)
-        sorted_truck_registry = sorted(truck_registry, key=lambda truck: truck[2])
+        classification_order = {"HV (Heavy Vehicle)": 0, "MV (Medium Vehicle)": 1, "LV (Light Vehicle)": 2}
+        sorted_truck_registry = sorted(truck_registry, key=lambda truck: classification_order.get(truck[2], 3))
 
         return [header] + sorted_truck_registry  # Include the header row in the sorted registry
     ```
