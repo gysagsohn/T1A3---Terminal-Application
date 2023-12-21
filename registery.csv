@@ -1,7 +1,5 @@
-123,123.0
-DAT61N,23.0,HV (Heavy Vehicle)
-QWE,12.0,HV (Heavy Vehicle)
-KSJUCN,5.0,LV (Light Vehicle)
-DAT61N,21.0,HV (Heavy Vehicle)
-DAT61N,12.0,HV (Heavy Vehicle)
-DAT61N,12.0,HV (Heavy Vehicle)
+rego,weight,classification
+11,32.0,HV (Heavy Vehicle)
+EXA,7.0,LV (Light Vehicle)
+OP,21.0,HV (Heavy Vehicle)
+BEN,22.9,HV (Heavy Vehicle)
