@@ -31,6 +31,7 @@ def add_truck(file_name):
     with open(file_name, "a", newline='') as f:
         writer = csv.writer(f)
         writer.writerow([truck_rego, truck_weight, truck_classification])
+<<<<<<< HEAD
 =======
     truck_weight = get_valid_float_input("Please enter truck's weight in tonnes(numbers only): ")
     truck_classification = classify_truck_weight(truck_weight)
@@ -38,6 +39,8 @@ def add_truck(file_name):
         writer = csv.writer(f)
         writer.writerow([truck_rego, truck_weight,  truck_classification])
 >>>>>>> cd3212c (Add function classify truck weight)
+=======
+>>>>>>> 8a82092 (add function to update truck details in registry and order the truck list)
 #error fixing if the weight of truck is not numbers
 def get_valid_float_input(prompt):
     while True:
@@ -50,6 +53,7 @@ def get_valid_float_input(prompt):
 
 
 def view_truck_registry(file_name):
+<<<<<<< HEAD
     print(f"{header_function_colour}\nTruck Registry:{reset}")
     sorted_truck_registry = sort_truck_registry(file_name)
 
@@ -58,6 +62,13 @@ def view_truck_registry(file_name):
         print(formatted_truck)
 
 
+=======
+    print("\nTruck Registry:")
+    sorted_truck_registry = sort_truck_registry(file_name)
+
+    for truck in sorted_truck_registry:
+        print(truck)
+>>>>>>> 8a82092 (add function to update truck details in registry and order the truck list)
 
 #function to sort the order the trucks will show up in the list
 def sort_truck_registry(file_name):
@@ -67,8 +78,12 @@ def sort_truck_registry(file_name):
         truck_registry = list(reader)
 
     # Sort the truck registry based on classification (HV, MV, LV)
+<<<<<<< HEAD
     classification_order = {"HV (Heavy Vehicle)": 0, "MV (Medium Vehicle)": 1, "LV (Light Vehicle)": 2}
     sorted_truck_registry = sorted(truck_registry, key=lambda truck: classification_order.get(truck[2], 3))
+=======
+    sorted_truck_registry = sorted(truck_registry, key=lambda truck: truck[2])
+>>>>>>> 8a82092 (add function to update truck details in registry and order the truck list)
 
     return [header] + sorted_truck_registry  # Include the header row in the sorted registry
 
@@ -109,11 +124,19 @@ def remove_truck(file_name):
 
 
 def update_truck_details(file_name):
+<<<<<<< HEAD
     print(f"{header_function_colour}Update truck details in the registry{reset}")
     # Display the current truck registry so that the user knows what trucks are in their list
     view_truck_registry(file_name)
 
     truck_rego_to_update = input(f"{user_selection_color}Enter truck rego you want to update: {reset}").upper()
+=======
+    print("Update truck details in the registry")
+    # Display the current truck registry so that the user knows what trucks are in their list
+    view_truck_registry(file_name)
+
+    truck_rego_to_update = input("Enter truck rego you want to update: ").upper()
+>>>>>>> 8a82092 (add function to update truck details in registry and order the truck list)
     truck_registry = []
 
     with open(file_name, "r") as f:
@@ -122,10 +145,17 @@ def update_truck_details(file_name):
         for row in reader:
             if truck_rego_to_update == row[0]:
                 found = True
+<<<<<<< HEAD
                 print(f"{option}Choose what to update:")
                 print("1. Registration Number")
                 print("2. Weight")
                 print("3. Both('reset')")
+=======
+                print("Choose what to update:")
+                print("1. Registration Number")
+                print("2. Weight")
+                print("3. Both")
+>>>>>>> 8a82092 (add function to update truck details in registry and order the truck list)
                 choice = input("Enter your choice (1, 2, or 3): ")
                 if choice == "1":
                     updated_rego = input("Enter the new registration number: ").upper()
@@ -137,18 +167,27 @@ def update_truck_details(file_name):
                     updated_rego = input("Enter the new registration number: ").upper()
                     updated_weight = get_valid_float_input("Enter the new weight in tonnes (numbers only): ")
                 else:
+<<<<<<< HEAD
                     print(f"{invalid_error_color}Invalid choice. No updates will be made.{reset}")
+=======
+                    print("Invalid choice. No updates will be made.")
+>>>>>>> 8a82092 (add function to update truck details in registry and order the truck list)
                     return
                 updated_classification = classify_truck_weight(updated_weight)
                 truck_registry.append([updated_rego, updated_weight, updated_classification])
             else:
                 truck_registry.append(row)
     if not found:
+<<<<<<< HEAD
         print(f"{invalid_error_color}Truck with registration number {truck_rego_to_update} not found in the registry.{reset}")
+=======
+        print(f"Truck with registration number {truck_rego_to_update} not found in the registry.")
+>>>>>>> 8a82092 (add function to update truck details in registry and order the truck list)
     else:
         with open(file_name, "w", newline='') as f:
             writer = csv.writer(f)
             writer.writerows(truck_registry)
+<<<<<<< HEAD
         print(f"{header_function_colour}Truck details updated successfully.{reset}")
 
 def search_truck_classification(file_name, classification):
@@ -164,3 +203,6 @@ def search_truck_classification(file_name, classification):
         print(f"{header_function_colour}\nTrucks found:{reset}")
         for truck in trucks_found:
             print(truck)
+=======
+        print(f"Truck details updated successfully.")
+>>>>>>> 8a82092 (add function to update truck details in registry and order the truck list)
