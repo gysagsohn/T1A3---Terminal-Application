@@ -12,9 +12,10 @@ def add_truck(file_name):
             print("Invalid input. The truck registration can be 6 characters or less.")
     # user input to get truck weight
     truck_weight = get_valid_float_input("Please enter truck's weight in tonnes(numbers only): ")
+    truck_classification = classify_truck_weight(truck_weight)
     with open(file_name, "a", newline='') as f:
         writer = csv.writer(f)
-        writer.writerow([truck_rego, truck_weight])
+        writer.writerow([truck_rego, truck_weight,  truck_classification])
 #error fixing if the weight of truck is not numbers
 def get_valid_float_input(prompt):
     while True:
@@ -33,13 +34,14 @@ def view_truck_registry(file_name):
         for truck in reader:
             print(truck)
  
-# def weight_classification_truck(truck_weight):
-#     if truck_weight >= 12:
-#         return "HV (Heavy Vehicle)"
-#     elif truck_weight < 8:
-#         return "LV (Light Vehicle)"
-#     else:
-#         return "MV (Medium Vehicle)"
+def classify_truck_weight(weight):
+    #Classify the weight of a truck into LV, MV, or HV
+    if weight < 8:
+        return "LV (Light Vehicle)"
+    elif weight >= 12:
+        return "HV (Heavy Vehicle)"
+    else:
+        return "MV (Medium Vehicle)"
 
 def remove_truck(file_name):
     print("Remove truck from registry")

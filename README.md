@@ -32,7 +32,7 @@ I submitted the below breif for terminal application app assginement:
 # Flow chart of my application:
 Flow chart for my application has been made and it can seen under docs. 
 
-# Main page - function 1 part 1 and user input 1w
+# Function - Main page - part 1
 Created main page to give user options on what they can do. Very simple number menu options: 
 
     ```python
@@ -47,7 +47,7 @@ Created main page to give user options on what they can do. Very simple number m
     ```
 Considering creating a password page if I get time, but at this stage I believe this is sufficient. Will use colour function at the end. 
 
-# Users Choice - fuction 1 part 2
+# Function - User choice 
 
 Used a while loop function to define user input
 
@@ -70,7 +70,7 @@ Used a while loop function to define user input
 
 Each of those variable will be a function that is defined in a different page.
 
-# Add truck function
+# Function - Add truck
 
 I attempted using the below code for it:
 
@@ -174,6 +174,37 @@ Just needed to add a simple function to provide the user with the option to view
             writer = csv.writer(f)
             writer.writerows(truck_rego)
     ```
+
+Showing the truck regsitry might not comply with DRY code principle, but I believe this would reduce user error, therefore this was inserted. 
+
+# Function - Truck weight classification
+I original wanted this function to be where the user enters the rego of the truck that is already in the registry and it provides the weight clafficiation. The weight classification is if the truck weights 12T or more it is heavy vehicle (HV), if it weights 8t or less then it is a light vehicle and everything else is medium class (MV). However, as a way to demostrate that I am able to use the data input better, I have added the truck weight classification automatically so that it shows its class. The code I used to make it happen:
+
+    ```python
+    truck_classification = classify_truck_weight(truck_weight)
+
+
+    writer.writerow([truck_rego, truck_weight,  truck_classification])
+    ```
+I nested this in the add truck function so that it shows up on the list, and the claffication is defined below:
+
+    ```python
+    def classify_truck_weight(weight):
+        #Classify the weight of a truck into LV, MV, or HV
+        if weight < 8:
+            return "LV (Light Vehicle)"
+        elif weight >= 12:
+            return "HV (Heavy Vehicle)"
+        else:
+            return "MV (Medium Vehicle)"
+    ```
+
+Using if, elif and else to create the loop. This idea was defined in my flow digram "truck_classification_application_fuction"
+
+Since I have made changes to the orinal plan, I have decided to change the option 4 on the main page to a different function, where a user can search for trucks based on weight classification, and it only shows those trucks when requested. Please see below for the search based on weight classification function. 
+
+# Function - Searh based on weight classification
+
 
 # CSV file - Truck Registry
 
