@@ -30,14 +30,6 @@ def add_truck(file_name):
     with open(file_name, "a", newline='') as f:
         writer = csv.writer(f)
         writer.writerow([truck_rego, truck_weight, truck_classification])
-=======
-    truck_weight = get_valid_float_input("Please enter truck's weight in tonnes(numbers only): ")
-    truck_classification = classify_truck_weight(truck_weight)
-    with open(file_name, "a", newline='') as f:
-        writer = csv.writer(f)
-        writer.writerow([truck_rego, truck_weight, truck_classification])
-        writer.writerow([truck_rego, truck_weight,  truck_classification])
->>>>>>> cd3212c (Add function classify truck weight)
 #error fixing if the weight of truck is not numbers
 def get_valid_float_input(prompt):
     while True:
