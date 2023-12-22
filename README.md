@@ -366,6 +366,26 @@ Need a CSV file to hold the truck register informaiton. I used the code that I l
     ```
 Further used error function if file could not be found based on what I learned during class. As of 18/12 this has not been tested, and might be updated as I develop the app. 
 
+# Python Packages
+I have choosen to import the following packages:
+- colored 
+- numpy 
+- pandas 
+- requests 
+- matplotlib
+- os
+
+Colored is the main function that I intend to use in my application. As the application developes I intend to use the others. 
+
+# Instruction manual
+
+1. Dowload git gub represitory
+2. ls -l
+3. chmod +x run.sh
+4. ./run.sh
+5. deactivate
+
+
 # Reference List
     - van Rossum, G, Warsaw, B & Coghlan, N 2001, PEP 8 – Style Guide for Python Code | peps.python.org, viewed 15/12/23 <peps.python.org>
     -‌ GeeksforGeeks 2019, GeeksforGeeks | A computer science portal for geeks, viewed 15/12/23 <GeeksforGeeks.>‌
