@@ -139,3 +139,16 @@ def update_truck_details(file_name):
             writer.writerows(truck_registry)
         print(f"Truck details updated successfully.")
 
+def search_truck_classification(file_name, classification):
+    # Search for trucks in the registry based on their classification
+    print(f"Search for trucks with classification: {classification}")
+    with open(file_name, "r") as f:
+        reader = csv.reader(f)
+        trucks_found = [row for row in reader if row[2] == classification]
+
+    if not trucks_found:
+        print(f"No trucks found with classification: {classification}")
+    else:
+        print("\nTrucks found:")
+        for truck in trucks_found:
+            print(truck)
