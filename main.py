@@ -1,22 +1,27 @@
 #T1A3 terminal application - crearting repository
 
-# from colored import fg, attr, bg
+from colored import fg, attr, bg
+import numpy as np
+import pandas as pd
+import requests
+import matplotlib.pyplot as plt
+
 from truck_registry_functions import add_truck, view_truck_registry, remove_truck, update_truck_details, search_truck_classification
-file_name= "registery.csv"
+file_name= "registry.csv"
 
 try:
-    truck_registery_file= open(file_name, "r")
-    truck_registery_file.close()
+    truck_registry_file= open(file_name, "r")
+    truck_registry_file.close()
 except FileNotFoundError:
-    truck_registery_file = open(file_name, "w")
-    truck_registery_file.write("rego,weight,classification\n")
-    truck_registery_file.close()
+    truck_registry_file = open(file_name, "w")
+    truck_registry_file.write("rego,weight,classification\n")
+    truck_registry_file.close()
 
 
 print(f"Truck Register!")
 
 #main page to show options
-def truck_registery():
+def truck_registry():
     print("1. Enter 1 add truck rego and weight to your list")
     print("2. Enter 2 to view your truck registerty")
     print("3. Enter 3 remove truck from your registry")
@@ -29,7 +34,7 @@ def truck_registery():
 users_choice = ""
 
 while users_choice != "6":
-    users_choice = truck_registery()
+    users_choice = truck_registry()
     if (users_choice == "1"):
         add_truck(file_name)
     elif (users_choice == "2"):
@@ -46,4 +51,4 @@ while users_choice != "6":
         print("Invalid Input")
 
 
-print("Goodbye! Thank you for using the truck registery")
+print("Goodbye! Thank you for using the truck registry")
