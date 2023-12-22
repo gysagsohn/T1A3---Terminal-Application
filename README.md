@@ -387,6 +387,34 @@ I treid to make a function that would only show trucks of ceratin weight class. 
         return [header] + sorted_truck_registry  # Include the header row in the sorted registry
     ```
 
+The search function for weight classiciation is below:
+
+    ```python
+    def search_truck_classification(file_name, classification):
+        # Search for trucks in the registry based on their classification
+        print(f"Search for trucks with classification: {classification}")
+        with open(file_name, "r") as f:
+            reader = csv.reader(f)
+            trucks_found = [row for row in reader if row[2] == classification]
+
+        if not trucks_found:
+            print(f"No trucks found with classification: {classification}")
+        else:
+            print("\nTrucks found:")
+            for truck in trucks_found:
+                print(truck)
+    ```
+
+However the following error code is coming up. If I can't fix it by end of 22/12 then I will remove this from the application and work on the other things I have planned.
+
+    ```console
+    Traceback (most recent call last):
+    File "/Users/gysohn/Desktop/Coder_Academy/T1A3/src/main.py", line 42, in <module>
+        search_truck_classification(file_name)
+    TypeError: search_truck_classification() missing 1 required positional argument: 'classification'
+    ```
+
+It is causing an error 
 # Function - Update truck details
 I created a function in which a user could update the details of the truck in registery if it needed to be changed, as there could be user error in inputing the details. I wanted a different solution then removing the truck and re-adding the truck again. To do this I used the following code:
 

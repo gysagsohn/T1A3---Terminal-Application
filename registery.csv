@@ -1,6 +1,6 @@
 rego,weight,classification
 11,32.0,HV (Heavy Vehicle)
-EXA,7.0,LV (Light Vehicle)
+EXA1,123.0,HV (Heavy Vehicle)
 OP,21.0,HV (Heavy Vehicle)
 BEN,22.9,HV (Heavy Vehicle)
 

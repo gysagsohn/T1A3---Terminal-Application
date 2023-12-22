@@ -205,4 +205,24 @@ def search_truck_classification(file_name, classification):
             print(truck)
 =======
         print(f"Truck details updated successfully.")
+<<<<<<< HEAD
 >>>>>>> 8a82092 (add function to update truck details in registry and order the truck list)
+=======
+<<<<<<< HEAD
+=======
+
+def search_truck_classification(file_name, classification):
+    # Search for trucks in the registry based on their classification
+    print(f"Search for trucks with classification: {classification}")
+    with open(file_name, "r") as f:
+        reader = csv.reader(f)
+        trucks_found = [row for row in reader if row[2] == classification]
+
+    if not trucks_found:
+        print(f"No trucks found with classification: {classification}")
+    else:
+        print("\nTrucks found:")
+        for truck in trucks_found:
+            print(truck)
+>>>>>>> 9dd5a0a (Added serach function for weight but causes error. Need more work)
+>>>>>>> 595c5f8 (Added serach function for weight but causes error. Need more work)
