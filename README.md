@@ -215,13 +215,6 @@ Since I have made changes to the orinal plan, I have decided to change the optio
         with open(file_name, "w", newline='') as f:
             writer = csv.writer(f)
             writer.writerows(truck_rego)
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-   ```
-# CSV file for truck registry 
-=======
->>>>>>> cd3212c (Add function classify truck weight)
     ```
 
 Showing the truck regsitry might not comply with DRY code principle, but I believe this would reduce user error, therefore this was inserted. 
@@ -252,8 +245,6 @@ Using if, elif and else to create the loop. This idea was defined in my flow dig
 
 Since I have made changes to the orinal plan, I have decided to change the option 4 on the main page to a different function, where a user can search for trucks based on weight classification, and it only shows those trucks when requested. Please see below for the search based on weight classification function. 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 # Function - Search based on weight classification / ordered view
 I treid to make a function that would only show trucks of ceratin weight class. I could not work this out. If I have time, I will come back to this and make this function. However, I thought the second best option is once the user added the details of the truck and uses the function view truck registry, I would group them into classification and make them feature into view truck regisrty. So to make this happened I changed the view truck function to include the following code:
 
@@ -359,116 +350,6 @@ def update_truck_details(file_name):
 ```
 
 # CSV file - Truck Registry
-=======
-# Function - Searh based on weight classification
-=======
-# Function - Search based on weight classification / ordered view
-I treid to make a function that would only show trucks of ceratin weight class. I could not work this out. If I have time, I will come back to this and make this function. However, I thought the second best option is once the user added the details of the truck and uses the function view truck registry, I would group them into classification and make them feature into view truck regisrty. So to make this happened I changed the view truck function to include the following code:
->>>>>>> 8a82092 (add function to update truck details in registry and order the truck list)
-
-    ```python
-    def view_truck_registry(file_name):
-        print("\nTruck Registry:")
-        sorted_truck_registry = sort_truck_registry(file_name)
-
-        for truck in sorted_truck_registry:
-            print(truck)
-
-    #function to sort the order the trucks will show up in the list
-    def sort_truck_registry(file_name):
-        with open(file_name, "r") as f:
-            reader = csv.reader(f)
-            header = next(reader)  # Skip the header row
-            truck_registry = list(reader)
-
-        # Sort the truck registry based on classification (HV, MV, LV)
-        sorted_truck_registry = sorted(truck_registry, key=lambda truck: truck[2])
-
-        return [header] + sorted_truck_registry  # Include the header row in the sorted registry
-    ```
-
-The search function for weight classiciation is below:
-
-    ```python
-    def search_truck_classification(file_name, classification):
-        # Search for trucks in the registry based on their classification
-        print(f"Search for trucks with classification: {classification}")
-        with open(file_name, "r") as f:
-            reader = csv.reader(f)
-            trucks_found = [row for row in reader if row[2] == classification]
-
-        if not trucks_found:
-            print(f"No trucks found with classification: {classification}")
-        else:
-            print("\nTrucks found:")
-            for truck in trucks_found:
-                print(truck)
-    ```
-
-However the following error code is coming up. If I can't fix it by end of 22/12 then I will remove this from the application and work on the other things I have planned.
-
-    ```console
-    Traceback (most recent call last):
-    File "/Users/gysohn/Desktop/Coder_Academy/T1A3/src/main.py", line 42, in <module>
-        search_truck_classification(file_name)
-    TypeError: search_truck_classification() missing 1 required positional argument: 'classification'
-    ```
-
-It is causing an error 
-# Function - Update truck details
-I created a function in which a user could update the details of the truck in registery if it needed to be changed, as there could be user error in inputing the details. I wanted a different solution then removing the truck and re-adding the truck again. To do this I used the following code:
-
-```python
-def update_truck_details(file_name):
-    print("Update truck details in the registry")
-    # Display the current truck registry so that the user knows what trucks are in their list
-    view_truck_registry(file_name)
-
-    truck_rego_to_update = input("Enter truck rego you want to update: ").upper()
-    truck_registry = []
-
-    with open(file_name, "r") as f:
-        reader = csv.reader(f)
-        found = False  # flag to track if the truck to update is found
-        for row in reader:
-            if truck_rego_to_update == row[0]:
-                found = True
-                print("Choose what to update:")
-                print("1. Registration Number")
-                print("2. Weight")
-                print("3. Both")
-                choice = input("Enter your choice (1, 2, or 3): ")
-
-                if choice == "1":
-                    updated_rego = input("Enter the new registration number: ").upper()
-                    updated_weight = row[1]  # Keep the existing weight
-                elif choice == "2":
-                    updated_rego = row[0]  # Keep the existing registration number
-                    updated_weight = get_valid_float_input("Enter the new weight in tonnes (numbers only): ")
-                elif choice == "3":
-                    updated_rego = input("Enter the new registration number: ").upper()
-                    updated_weight = get_valid_float_input("Enter the new weight in tonnes (numbers only): ")
-                else:
-                    print("Invalid choice. No updates will be made.")
-                    return
-
-                updated_classification = classify_truck_weight(updated_weight)
-                truck_registry.append([updated_rego, updated_weight, updated_classification])
-            else:
-                truck_registry.append(row)
-
-    if not found:
-        print(f"Truck with registration number {truck_rego_to_update} not found in the registry.")
-    else:
-        with open(file_name, "w", newline='') as f:
-            writer = csv.writer(f)
-            writer.writerows(truck_registry)
-        print(f"Truck details updated successfully.")
-```
-
-# CSV file - Truck Registry
->>>>>>> f1a70f7 (Add function classify truck weight)
->>>>>>> cd3212c (Add function classify truck weight)
 
 Need a CSV file to hold the truck register informaiton. I used the code that I lernt from class. I adjusted the code to suit the truck registry from a todo list that was worked on from class. 
 
