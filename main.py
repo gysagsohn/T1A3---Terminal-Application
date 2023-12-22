@@ -1,6 +1,7 @@
 #T1A3 terminal application - crearting repository
 
 from colored import fg, attr, bg
+from os import system
 import numpy as np
 import pandas as pd
 import requests
