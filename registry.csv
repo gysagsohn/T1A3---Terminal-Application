@@ -1,5 +1,4 @@
 rego,weight,classification
-11,32.0,HV (Heavy Vehicle)
 EXA1,123.0,HV (Heavy Vehicle)
 OP,21.0,HV (Heavy Vehicle)
 BEN,22.9,HV (Heavy Vehicle)
@@ -9,7 +8,6 @@ MC3,23.0,HV (Heavy Vehicle)
 1,12.0,HV (Heavy Vehicle)
 COLOUR,12.0,HV (Heavy Vehicle)
 rego,weight,classification
-11,32.0,HV (Heavy Vehicle)
 EXA1,123.0,HV (Heavy Vehicle)
 OP,21.0,HV (Heavy Vehicle)
 BEN,22.9,HV (Heavy Vehicle)
