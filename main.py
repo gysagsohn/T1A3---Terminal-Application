@@ -10,8 +10,8 @@ from truck_registry_functions import (
     add_truck, 
     view_truck_registry, 
     remove_truck, 
-    update_truck_details, 
-    search_truck_classification)
+    update_truck_details,
+    )
 
 
 file_name= "registry.csv"
@@ -35,8 +35,7 @@ def truck_registry():
     print(f"{fg('green')}2. Enter 2 to view your truck registry {attr('reset')}")
     print(f"{fg('green')}3. Enter 3 remove truck from your registry {attr('reset')}")
     print(f"{fg('green')}4. Enter 4 to update truck details in registry {attr('reset')}")
-    print(f"{fg('green')}5. Enter 5 search for trucks based on weight classification {attr('reset')}")
-    print(f"{fg('green')}6. Enter 6 to exit {attr('reset')}")
+    print(f"{fg('green')}5. Enter 5 to exit {attr('reset')}")
     choice = input(f"{fg('yellow')}Enter your selection: {attr('reset')}")
     return choice
 
@@ -44,7 +43,7 @@ def truck_registry():
 users_choice = ""
 
 
-while users_choice != "6":
+while users_choice != "5":
     users_choice = truck_registry()
     if (users_choice == "1"):
         add_truck(file_name)
@@ -55,8 +54,6 @@ while users_choice != "6":
     elif (users_choice == "4"):
         update_truck_details(file_name)
     elif (users_choice == "5"):
-        search_truck_classification(file_name)
-    elif (users_choice == "6"):
         continue
     else:
        print(f"{fg('red')}{attr('bold')}Invalid Input{attr('reset')}")

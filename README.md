@@ -2,7 +2,7 @@
 
 Link to GitHub Repository: https://github.com/gysagsohn/T1A3---Terminal-Application
 
-Link to the presentation: TBC
+Link to the presentation: https://youtu.be/JK5F8Wg_DD8
 
 # Requirements for application
 
@@ -10,7 +10,7 @@ Link to the presentation: TBC
 - Command line interface
 - Python >=3
 - Operating System - The application is platform independent and can run on various operating systems, including Windows, macOS, and Linux.
-- Internet Connection - Internet connection to download the required packages. If already installed then it might not be required 
+- Internet Connection - Internet connection is required to download the required packages. If already installed then it might not be required 
 - Ram 2GB
 - 1 GB free disk space
 
@@ -27,13 +27,8 @@ Click on the "Code" button and choose "Download ZIP" to download the repository 
 
 Locate the downloaded file and extract the file. Right click on the ZIP file and select "Extract ALL" and/or use an unzip tool. 
 
-**Step 3 Software requirement**
 
-Python 3 or above is required for this system. If you are unsure if you have this programme, just skip this step and go to next step. It runs a Python 3 check to ensure if you have it and will inform you if you don't. If you don't please follow the below guide on how to install Python 3:
-
-https://www.python.org/downloads/
-
-**Step 4 Open a Terminal or Command Prompt**
+**Step 3 Open a Terminal or Command Prompt**
 
 Depending on your operating system, open a terminal or command prompt:
 
@@ -41,17 +36,51 @@ Depending on your operating system, open a terminal or command prompt:
 - macOS: Press Cmd + Space, type Terminal, and press Enter.
 - Linux: Press Ctrl + Alt + T or use your preferred terminal application.
 
-**Step 5: Navigate to the Application Folder**
+**Step 4: Navigate to the Application Folder**
 
 Use cd command in terminal or command prompt to to navigate to the folder where you extracted the application. For example:
 
 ```bash
-    ```
+    
     cd /path/to/T1A3--Truck-Registry-Application
-    ```
+    
 ```
 
-**Step 6: Run the Installation Script to Run Programme**
+**Step 4 Software requirement** - optional 
+
+Python 3 or above is required for this system. If you are unsure if you have this programme, just skip this step and go to next step. 
+
+If you wish to check that if you have Python 3, please run python3_check.sh. Please use the following command:
+
+```bash
+
+    chmod +x check_python3.sh #Save the file and make it executable
+
+    ./check_python3.sh #run script
+
+```
+
+If you don't please follow the below guide on how to install Python 3:
+
+https://www.python.org/downloads/
+
+Please note you do not required to do this as Step 7 will check if you have Python 3 as well.
+
+**Step 6 check for internect connection** - optional 
+
+Internet connection is required to download the required packages. If already installed then it might not be required.
+
+If you wish to check if you have internet, please run internet_connection_check.sh Please use the following command:
+
+```bash
+
+    chmod +x internet_connection_check.sh #Save the file and make it executable
+
+    ./internet_connection_check.sh  #run script
+
+```
+
+**Step 7: Run the Installation Script to Run Programme**
 
 Run the  installation script (run.sh) by executing the following commands:
 
@@ -73,7 +102,7 @@ Currently only colored is being used, but for future versions the others will be
 
 If the application does not open, please follow Step 7
 
-**Step 7 Run Application**
+**Step 7A: Run Application** - optional
 
 Once the script is completed, please type the following to you terminal and/or command:
 
@@ -91,8 +120,7 @@ Images/termal_application_main_page.png
 Use your keyboard to write in the relevant user input as requested by the program. 
 
 # Brief submission:
-I submitted the below brief for terminal application app assignment:
-    I would like to make a truck register. It will keep a detail for a fleet of trucks, including key information, such as rego, model, and plant number.
+I submitted the below brief for terminal application app assignment: I would like to make a truck register. It will keep a detail for a fleet of trucks, including key information, such as rego, model, and plant number.
 
     Features will include:
         to add/remove trucks
@@ -108,17 +136,30 @@ For my remote repository I have chosen git hub. The first commit was made on 12/
 Trello - planning to use trello to manage the process and will be added to this project submission
 Screen shot of the board on 
 
-./docs/trello_board_day1
-./docs/trello_board_day2
-./docs/trello_board_day3
-./docs/trello_board_day4
-./docs/trello_board_day5
-./docs/trello_board_day6
-./docs/trello_board_day7
-./docs/trello_board_day8
+Images/Trello_board_day1.png
+
+Images/Trello_board_day2.png
+
+Images/Trello_board_day3.png
+
+Images/Trello_board_day4.png
+
+Images/Trello_board_day5.png
+
+Images/Trello_board_day6.png
+
+Images/Trello_board_day7.png
+
+Images/Trello_board_day8.png
+
+Images/Trello_board_day9.png
+
+Images/trello_board_lastday.png
 
 # CODE STYLE CONVENTIONS:
 Pep 8 has been chosen as the style convention.
+
+I wasn't able to maintain the max 72 charater per line requirement. I will work on this for next project
 
 # Flow chart of my application:
 Flow chart for my application has been made and it can seen under docs. 
@@ -131,15 +172,16 @@ Images/truck_classification_application_fuction.drawio.png
 Created main page to give user options on what they can do. Very simple number menu options: 
 
 ```python
+
+    #main page to show options
     def truck_registry():
-    print(f"{fg('green')}1. Enter 1 add truck rego and weight to your list")
-    print("2. Enter 2 to view your truck registry")
-    print("3. Enter 3 remove truck from your registry")
-    print("4. Enter 4 to update truck details in registry")
-    print("5. Enter 5 search for trucks based on weight classification")
-    print("6. Enter 6 to exit ('reset')}")
-    choice = input(f"{fg('yellow')}Enter your selection: {attr('reset')}")
-    return choice
+        print(f"{fg('green')}1. Enter 1 add truck rego and weight to your list {attr('reset')}")
+        print(f"{fg('green')}2. Enter 2 to view your truck registry {attr('reset')}")
+        print(f"{fg('green')}3. Enter 3 remove truck from your registry {attr('reset')}")
+        print(f"{fg('green')}4. Enter 4 to update truck details in registry {attr('reset')}")
+        print(f"{fg('green')}5. Enter 5 to exit {attr('reset')}")
+        choice = input(f"{fg('yellow')}Enter your selection: {attr('reset')}")
+        return choice
 
 ```
 Considering creating a password page if I get time, but at this stage I believe this is sufficient. Will use colour function at the end. 
@@ -360,7 +402,7 @@ I original wanted this function to be where the user enters the rego of the truc
     truck_classification = classify_truck_weight(truck_weight)
 
 
-    writer.writerow([truck_rego, truck_weight,  truck_classification])
+    writer.writerow([truck_rego, truck_weight, truck_classification])
 
 ```
 I nested this in the add truck function so that it shows up on the list, and the claffication is defined below:
@@ -430,6 +472,10 @@ After I imported the color package, the code was updated to:
 
         truck_rego_to_remove = input(f"{user_selection_color}Enter truck rego you want to remove: {reset}").upper()
         
+        if truck_rego_to_remove.lower() == 'exit':
+            print(f"{header_function_colour}Removing truck canceled. Returning to main page.{reset}")
+            return
+
         truck_rego = []
         with open(file_name, "r") as f:
             reader = csv.reader(f)
@@ -448,7 +494,10 @@ After I imported the color package, the code was updated to:
             writer = csv.writer(f)
             writer.writerows(truck_rego)
 
+
 ```
+I added if condition of 'exit' so that the user can exit the function if they made an error and selected the wrong function to enter that area.
+
 # Function - Truck weight classification
 I original wanted this function to be where the user enters the rego of the truck that is already in the registry and it provides the weight classification. The weight classification is if the truck weights 12T or more it is heavy vehicle (HV), if it weights 8t or less then it is a light vehicle and everything else is medium class (MV). However, as a way to demonstrate that I am able to use the data input better, I have added the truck weight classification automatically so that it shows its class. The code I used to make it happen:
 
@@ -475,8 +524,8 @@ Using if, elif and else to create the loop. This idea was defined in my flow dig
 
 Since I have made changes to the original plan, I have decided to change the option 4 on the main page to a different function, where a user can search for trucks based on weight classification, and it only shows those trucks when requested. Please see below for the search based on weight classification function. 
 
-# Function - Search based on weight classification / ordered view
-I tried to make a function that would only show trucks of ceratin weight class. I could not work this out. If I have time, I will come back to this and make this function. However, I thought the second best option is once the user added the details of the truck and uses the function view truck registry, I would group them into classification and make them feature into view truck regisrty. So to make this happened I changed the view truck function to include the following code:
+# Function - Search based on weight classification / ordered view - removed
+I tried to make a function that would only show trucks of ceratin weight class. I could not make this work. If I have time, I will come back to this and make this function. However, I thought the second best option is once the user enters the details of the truck and uses the function view truck registry, I would group them into classification automatically without the user requiring to take any action and make them feature into view truck regisrty. So to make this happened I changed the view truck function to include the following code:
 
 ```python
     def view_truck_registry(file_name):
@@ -518,14 +567,17 @@ The search function for weight classiciation is below:
                 print(truck)
 ```
 
-However the following error code is coming up. If I can't fix it by end of 22/12 then I will remove this from the application and work on the other things I have planned.
+However the following error code is coming up, please see below. If I can't fix it by end of 22/12 then I will remove this from the application and work on the other things I have planned. 
 
-    ```console
+```console
+
     Traceback (most recent call last):
     File "/Users/gysohn/Desktop/Coder_Academy/T1A3/src/main.py", line 42, in <module>
         search_truck_classification(file_name)
     TypeError: search_truck_classification() missing 1 required positional argument: 'classification'
+
 ```
+I coduln't get this to work in the time provided so it is not inlcuded in the final version. Will attempt to add in future version. 
 
 # Function - Update truck details
 I created a function in which a user could update the details of the truck in registry if it needed to be changed, as there could be user error in inputing the details. I wanted a different solution then removing the truck and re-adding the truck again. To do this I used the following code:
@@ -633,6 +685,93 @@ After I imported the color package, the code was updated to:
             print(f"{header_function_colour}Truck details updated successfully.{reset}")
 ```
 
+After running a test on this function, I noticed that there was no eror handling for user input error, such as if the rego number is greater then 6 characters, if the rego is already on the list or the truck weight is not a float data. Therefore I updated the code to the below to include error checking:
+
+```python
+
+#Function to update truck details in the register
+def update_truck_details(file_name):
+    print(f"{header_function_colour}Update truck details in the registry{reset}")
+    # Display the current truck registry so that the user knows what trucks are in their list
+    view_truck_registry(file_name)
+
+    truck_rego_to_update = input(f"{user_selection_color}Enter truck rego you want to update (or type 'exit' to go back to options): {reset}").upper()
+    
+    # Exit the update function and go back to options
+    if truck_rego_to_update.lower() == 'exit':
+        return
+
+    truck_registry = []
+
+    with open(file_name, "r") as f:
+        reader = csv.reader(f)
+        # flag to track if the truck to update is found
+        found = False
+        for row in reader:
+            if truck_rego_to_update == row[0]:
+                found = True
+                print(f"{option}Choose what to update:")
+                print("1. Registration Number")
+                print("2. Weight")
+                print("3. Both {reset}")
+                choice = input("Enter your choice (1, 2, or 3), or type 'exit' to go back: ")
+                # option for the user to exit the function
+                if choice.lower() == 'exit':
+                    print(f"{header_function_colour}Update canceled. Returning to the main page.{reset}")
+                    return
+
+                if choice == "1":
+                    # User input for the new registration number with validation
+                    while True:
+                        updated_rego = input("Enter the new registration number: ").upper()
+                        if len(updated_rego) <= 6 and not is_truck_registered(file_name, updated_rego):
+                            break
+                        else:
+                            if len(updated_rego) >= 6:
+                                print(f"{invalid_error_color}Invalid input. The truck registration can be 6 characters or less.{reset}")
+                            else:
+                                print(f"{invalid_error_color}Invalid input. The truck registration is already in the registry.{reset}")
+                    # Keep the existing weight
+                    updated_weight = float(row[1])
+                elif choice == "2":
+                    # Keep the existing registration number
+                    updated_rego = row[0]
+                    # User input for the new weight with validation
+                    updated_weight = get_valid_float_input("Enter the new weight in tonnes (numbers only): ")
+                elif choice == "3":
+                    # User input for both registration number and weight with validation
+                    while True:
+                        updated_rego = input("Enter the new registration number: ").upper()
+                        if len(updated_rego) <= 6 and not is_truck_registered(file_name, updated_rego):
+                            break
+                        else:
+                            if len(updated_rego) >= 6:
+                                print(f"{invalid_error_color}Invalid input. The truck registration can be 6 characters or less.{reset}")
+                            else:
+                                print(f"{invalid_error_color}Invalid input. The truck registration is already in the registry.{reset}")
+                    updated_weight = get_valid_float_input("Enter the new weight in tonnes (numbers only): ")
+                # Error handling for user input
+                else:
+                    print(f"{invalid_error_color}Invalid choice. No updates will be made.{reset}")
+                    return
+
+                updated_classification = classify_truck_weight(updated_weight)
+                truck_registry.append([updated_rego, updated_weight, updated_classification])
+            else:
+                truck_registry.append(row)
+
+    # Error handling if the wrong registration details are entered
+    if not found:
+        print(f"{invalid_error_color}Truck with registration number {truck_rego_to_update} not found in the registry.{reset}")
+    else:
+        with open(file_name, "w", newline='') as f:
+            writer = csv.writer(f)
+            writer.writerows(truck_registry)
+        print(f"{header_function_colour}Truck details updated successfully.{reset}")
+
+
+```
+
 # CSV file - Truck Registry
 
 Need a CSV file to hold the truck register informaiton. I used the code that I lernt from class. I adjusted the code to suit the truck registry from a todo list that was worked on from class. 
@@ -648,7 +787,14 @@ Need a CSV file to hold the truck register informaiton. I used the code that I l
         truck_registery_file.write("rego,weight\n")
         truck_registery_file.close()
     ```
-Further used error function if file could not be found based on what I learned during class. As of 18/12 this has not been tested, and might be updated as I develop the app. 
+Further used error function if file could not be found based on what I learned during class. 
+
+# Test of main functions
+
+I designed two test to test the main functions, main page and update truck regisry. 
+
+The two test can be found at:
+Images/T1A3 - Test - Sheet1.pdf
 
 # Python Packages
 I have choosen to import the following packages:
@@ -727,6 +873,41 @@ Please see below of how I used it:
 ```python
    print(f"{header_function_colour}Add truck details to register{reset}")
 ```
+
+I have also created a scrip file that would dowload all of the required packages and run the application, run.sh. It has the following code:
+
+```bash
+    #!/bin/bash
+
+    # Ensure the correct language is installed
+    check_python() {
+        if command -v python3 &>/dev/null; then
+            echo "Python 3 is installed."
+        else
+            echo "Error: Python 3 is not installed. Please install Python 3 to run this script."
+            exit 1
+        fi
+    }
+
+    #virtual enviroment download to ensure imports will work
+    python3 -m venv .venv 
+    source .venv/bin/activate
+    pip3 install colored 
+    pip3 install numpy 
+    pip3 install pandas 
+    pip3 install requests 
+    pip3 install matplotlib
+    python3 main.py
+
+```
+
+I also included a check for Python 3 as it is a requiremenet for the code to run. 
+
+# Scrip files
+
+In addition to the above scrip file I added two files:
+- python3_check.sh - this file is present if the user wants to do an indepdent check on Python3 before they start the programme. This is optional as the run.sh checkes it as well. 
+- internet_connection_check.sh - this files check if the user has connection to the internet. As internet is required to dowload the packages. I didn't add this to the run.sh file as there are other ways to check and it is an option step in the instructional manual. 
 
 # Reference List
     - van Rossum, G, Warsaw, B & Coghlan, N 2001, PEP 8 – Style Guide for Python Code | peps.python.org, viewed 15/12/23 <peps.python.org>

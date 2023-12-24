@@ -24,11 +24,16 @@ def add_truck(file_name):
     print(f"{header_function_colour}Add truck details to register{reset}")
     # User input for truck rego and error handling if the rego is longer than 6 characters
     while True:
-        truck_rego = input(f"{user_selection_color}Please enter truck rego (max 6 characters): {reset}").upper()
+        truck_rego = input(f"{user_selection_color}Please enter truck rego (max 6 characters) , or type 'exit' to cancel: {reset}").upper()
+        
+        if truck_rego.lower() == 'exit':
+            print(f"{header_function_colour}Adding truck canceled. Returning to main page.{reset}")
+            return
         if len(truck_rego) <= 6:
             break
         else:
             print(f"{invalid_error_color}Invalid input. The truck registration can be 6 characters or less.{reset}")
+    
     # Check if the truck is already registered
     if is_truck_registered(file_name, truck_rego):
         print(f"{invalid_error_color}Error: Truck with rego {truck_rego} is already in the registry.{reset}")
@@ -52,7 +57,8 @@ def get_valid_float_input(prompt):
             value = float(input(prompt))
             return value
         except ValueError:
-            print(f"{user_selection_color}Invalid input. Please enter numbers only.{reset}")
+            print(f"{invalid_error_color}Invalid input. Please enter numbers only.{reset}")
+
 
 # Function to show the truck registry 
 def view_truck_registry(file_name):
@@ -107,6 +113,10 @@ def remove_truck(file_name):
 
     truck_rego_to_remove = input(f"{user_selection_color}Enter truck rego you want to remove: {reset}").upper()
     
+    if truck_rego_to_remove.lower() == 'exit':
+        print(f"{header_function_colour}Removing truck canceled. Returning to main page.{reset}")
+        return
+
     truck_rego = []
     with open(file_name, "r") as f:
         reader = csv.reader(f)
@@ -125,7 +135,7 @@ def remove_truck(file_name):
         writer = csv.writer(f)
         writer.writerows(truck_rego)
 
-# Function to allow truck details to be udpated in the register
+#Function to update truck details in the register
 def update_truck_details(file_name):
     print(f"{header_function_colour}Update truck details in the registry{reset}")
     # Display the current truck registry so that the user knows what trucks are in their list
@@ -151,32 +161,52 @@ def update_truck_details(file_name):
                 print("2. Weight")
                 print("3. Both {reset}")
                 choice = input("Enter your choice (1, 2, or 3), or type 'exit' to go back: ")
-                #option for user to exit the function
+                # option for the user to exit the function
                 if choice.lower() == 'exit':
-                    print(f"{header_function_colour}Update canceled. Returning to options.{reset}")
+                    print(f"{header_function_colour}Update canceled. Returning to the main page.{reset}")
                     return
 
                 if choice == "1":
-                    updated_rego = input("Enter the new registration number: ").upper()
+                    # User input for the new registration number with validation
+                    while True:
+                        updated_rego = input("Enter the new registration number: ").upper()
+                        if len(updated_rego) <= 6 and not is_truck_registered(file_name, updated_rego):
+                            break
+                        else:
+                            if len(updated_rego) >= 6:
+                                print(f"{invalid_error_color}Invalid input. The truck registration can be 6 characters or less.{reset}")
+                            else:
+                                print(f"{invalid_error_color}Invalid input. The truck registration is already in the registry.{reset}")
                     # Keep the existing weight
                     updated_weight = float(row[1])
                 elif choice == "2":
                     # Keep the existing registration number
-                    updated_rego = row[0]  
+                    updated_rego = row[0]
+                    # User input for the new weight with validation
                     updated_weight = get_valid_float_input("Enter the new weight in tonnes (numbers only): ")
                 elif choice == "3":
-                    updated_rego = input("Enter the new registration number: ").upper()
+                    # User input for both registration number and weight with validation
+                    while True:
+                        updated_rego = input("Enter the new registration number: ").upper()
+                        if len(updated_rego) <= 6 and not is_truck_registered(file_name, updated_rego):
+                            break
+                        else:
+                            if len(updated_rego) >= 6:
+                                print(f"{invalid_error_color}Invalid input. The truck registration can be 6 characters or less.{reset}")
+                            else:
+                                print(f"{invalid_error_color}Invalid input. The truck registration is already in the registry.{reset}")
                     updated_weight = get_valid_float_input("Enter the new weight in tonnes (numbers only): ")
-                # Error handing for user input
+                # Error handling for user input
                 else:
                     print(f"{invalid_error_color}Invalid choice. No updates will be made.{reset}")
                     return
+
                 updated_classification = classify_truck_weight(updated_weight)
-                truck_registry.append([updated_rego,updated_weight,updated_classification])
+                truck_registry.append([updated_rego, updated_weight, updated_classification])
             else:
                 truck_registry.append(row)
 
-    # Error handing if the wrong registration details are entered
+    # Error handling if the wrong registration details are entered
     if not found:
         print(f"{invalid_error_color}Truck with registration number {truck_rego_to_update} not found in the registry.{reset}")
     else:
@@ -184,20 +214,4 @@ def update_truck_details(file_name):
             writer = csv.writer(f)
             writer.writerows(truck_registry)
         print(f"{header_function_colour}Truck details updated successfully.{reset}")
-
-
-# Function to only show the searched weight classification trucks only
-def search_truck_classification(file_name, classification):
-    # Search for trucks in the registry based on their classification
-    print(f"{header_function_colour}Search for trucks with classification: {classification}{reset}")
-    with open(file_name, "r") as f:
-        reader = csv.reader(f)
-        trucks_found = [row for row in reader if row[2] == classification]
-
-    if not trucks_found:
-        print(f"{header_function_colour}No trucks found with classification: {classification}{reset}")
-    else:
-        print(f"{header_function_colour}\nTrucks found:{reset}")
-        for truck in trucks_found:
-            print(truck)
 
